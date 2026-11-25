@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contratos para MEI: onde está a dificuldade?</title>
+<meta name="description" content="Questionário anônimo para microempreendedores sobre contratos. Leva cerca de 5 minutos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef2f6;--card:#fff;--ink:#0f2a43;--mut:#4d6178;--line:#cfd9e3;--ac:#0b6e8a;--acd:#084f64;--seal:#f2c94c;--err:#b3261e;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 "Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+.bar{position:sticky;top:0;z-index:5;height:5px;background:var(--line)}
+.bar i{display:block;height:100%;width:0;background:var(--ac);transition:width .25s}
+header{background:var(--ink);color:#fff;padding:44px 20px 52px}
+.wrap{max-width:700px;margin:0 auto}
+.seal{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:var(--seal);color:var(--ink);font:700 1.5rem Fraunces,Georgia,serif;margin-bottom:18px;box-shadow:0 0 0 4px rgba(242,201,76,.28)}
+h1{font:700 clamp(1.9rem,6vw,2.7rem)/1.15 Fraunces,Georgia,serif;margin:0 0 14px}
+header p{margin:0;max-width:56ch;color:#d4e0ec}
+header b{color:#fff}
+main{max-width:700px;margin:-26px auto 0;padding:0 16px 56px}
+section{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--ac);border-radius:4px 14px 14px 4px;padding:22px 20px;margin:0 0 20px}
+h2{font:600 1.3rem/1.25 Fraunces,Georgia,serif;margin:0 0 4px}
+.sub{margin:0 0 20px;color:var(--mut);font-size:.95rem}
+.q{margin:0 0 24px;border:0;padding:0;min-width:0}
+.q:last-child{margin-bottom:0}
+.q legend,.q>label.t{display:block;font-weight:700;margin-bottom:10px;padding:0}
+.opt{display:flex;gap:12px;align-items:center;margin:0 0 8px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;background:#fff;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ac)}
+.opt input{width:20px;height:20px;flex:none;margin:0;accent-color:var(--ac)}
+.opt:has(input:checked){border-color:var(--ac);background:#e3f2f6}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.scale .opt{justify-content:center;margin:0;padding:12px 0;font-weight:700}
+.scale .opt input{position:absolute;opacity:0;width:1px;height:1px}
+.scale .opt:has(input:checked){background:var(--ac);border-color:var(--ac);color:#fff}
+.scale .opt:has(input:focus-visible){outline:3px solid var(--seal);outline-offset:2px}
+.ends{display:flex;justify-content:space-between;font-size:.85rem;color:var(--mut);margin-top:6px}
+input[type=text],textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px}
+textarea{min-height:96px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible,.opt:has(input:focus-visible){outline:3px solid var(--seal);outline-offset:1px}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+button{width:100%;font:700 1.05rem "Nunito Sans",system-ui,sans-serif;background:var(--ac);color:#fff;border:0;border-radius:12px;padding:16px;cursor:pointer;transition:background .15s}
+button:hover{background:var(--acd)}
+button:disabled{opacity:.65;cursor:default}
+.msg{display:none;margin:14px 0 0;padding:14px;border-radius:10px;background:#fdecea;color:var(--err);font-weight:600}
+.thanks{text-align:center;padding:40px 20px}
+.thanks .seal{margin:0 auto 16px}
+.thanks p{color:var(--mut);max-width:44ch;margin:8px auto 0}
+footer{text-align:center;color:var(--mut);font-size:.85rem;padding:0 16px 32px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="bar" aria-hidden="true"><i id="pg"></i></div>
+<header>
+ <div class="wrap">
+  <div class="seal" aria-hidden="true">§</div>
+  <h1>Contratos para MEI: onde está a dificuldade?</h1>
+  <p>Somos estudantes de Direito e estamos criando um kit simples para ajudar microempreendedores a entender contratos. Leva cerca de 5 minutos. <b>A resposta é anônima:</b> não pedimos nome, telefone nem CPF/CNPJ.</p>
+ </div>
+</header>
+<main id="app"><form id="f" novalidate></form></main>
+<footer>Projeto de Experiência Aplicada em Contratos · Faculdade Serra Dourada de Altamira</footer>
+<script>
+// 1) Crie o formulário em formspree.io e cole aqui o endereço que ele te der.
+//    Exemplo: "https://formspree.io/f/abcdwxyz"
+var ENDPOINT = "COLE_AQUI_O_ENDERECO_DO_FORMSPREE";
+
+var Q=[
+{t:"Sobre você e seu negócio",s:"Para entender quem está respondendo.",qs:[
+{k:"ramo",l:"Qual é o seu ramo de atividade?",type:"text",req:1},
+{k:"tempo",l:"Há quanto tempo você é MEI?",type:"radio",o:["Menos de 1 ano","De 1 a 3 anos","Mais de 3 anos"],req:1},
+{k:"tipos",l:"Que tipos de contrato você já usou?",hint:"Pode marcar mais de um.",type:"check",o:["Prestação de serviço","Compra e venda / fornecimento","Aluguel (locação)","Parceria ou sociedade","Contrato com empresa grande","Nunca usei contrato"]},
+{k:"fecha",l:"Como você costuma fechar negócio?",hint:"Pode marcar mais de um.",type:"check",o:["Só conversa ou WhatsApp","Modelo baixado da internet","Contrato feito por advogado ou contador","Contrato que o cliente ou fornecedor manda","Outro"]}]},
+{t:"Como você lida com contratos",s:"Não existe resposta certa. Conte como é na prática.",qs:[
+{k:"le",l:"Você lê o contrato inteiro antes de assinar?",type:"radio",o:["Sempre","Às vezes","Raramente","Nunca"],req:1},
+{k:"semEntender",l:"Já assinou algum contrato sem entender alguma parte?",type:"radio",o:["Sim","Não","Não lembro"],req:1},
+{k:"dificil",l:"Quais partes são mais difíceis de entender?",hint:"Pode marcar mais de um.",type:"check",o:["Multa e cancelamento (rescisão)","Prazo e renovação automática","Pagamento, juros e reajuste","Responsabilidades de cada lado","Foro e leis citadas","Garantias e defeitos","Direitos sobre o trabalho feito (autoria)","A linguagem difícil em geral"]},
+{k:"problema",l:"Já teve algum problema por causa de contrato? (calote, multa, cancelamento, cobrança)",type:"radio",o:["Sim","Não"]},
+{k:"problemaTxt",l:"Se sim, o que aconteceu? (opcional)",type:"area"},
+{k:"ajuda",l:"Quando tem dúvida num contrato, a quem recorre?",hint:"Pode marcar mais de um.",type:"check",o:["Advogado","Contador","Sebrae","Amigo ou familiar","Pesquiso na internet","Ninguém, assino assim mesmo"]},
+{k:"confianca",l:"O quanto você se sente seguro para entender um contrato sozinho?",type:"scale",req:1},
+{k:"negociar",l:"Você já tentou mudar alguma parte de um contrato antes de assinar?",type:"radio",o:["Sim, e consegui","Sim, mas não aceitaram","Não sabia que podia","Não, tive receio de perder o negócio"]},
+{k:"semContrato",l:"Já perdeu dinheiro ou deixou de receber por não ter um contrato escrito?",type:"radio",o:["Sim","Quase aconteceu","Não"]},
+{k:"receio",l:"O que mais preocupa você na hora de assinar um contrato?",hint:"Pode marcar mais de um.",type:"check",o:["Multas que eu não esperava","Ser cobrado por algo que não entendi","O cliente não pagar","Não conseguir cancelar","Ser enganado","Nada me preocupa"]}]},
+{t:"O que ajudaria você",s:"Sua resposta define o que vai entrar no kit.",qs:[
+{k:"kit",l:"O que mais ajudaria no seu dia a dia?",hint:"Pode marcar mais de um.",type:"check",o:["Modelos de contrato prontos e simples","Glossário com palavras difíceis explicadas","Checklist do que conferir antes de assinar","Vídeos ou áudios curtos explicando","Alguém para tirar dúvidas por WhatsApp"]},
+{k:"formato",l:"Em qual formato você prefere receber esse material?",type:"radio",o:["PDF","WhatsApp","Vídeo curto","Impresso"],req:1},
+{k:"livre",l:"Quer deixar uma sugestão ou contar uma situação? (opcional)",type:"area"}]}
+];
+var f=document.getElementById("f"),pg=document.getElementById("pg"),total=0;
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function opt(q,o,cls){var lb=el("label",cls||"opt"),i=el("input");i.type=q.type=="check"?"checkbox":"radio";i.name=q.k;i.value=o;lb.appendChild(i);if(!cls||cls=="opt")lb.appendChild(el("span",0,o));else lb.appendChild(el("span",0,o));return lb}
+Q.forEach(function(s){
+ var sec=el("section");sec.appendChild(el("h2",0,s.t));sec.appendChild(el("p","sub",s.s));
+ s.qs.forEach(function(q){
+  total++;
+  var d,lg=q.l+(q.req?" *":"");
+  if(q.type=="text"){d=el("div","q");var lab=el("label","t",lg);lab.setAttribute("for",q.k);d.appendChild(lab);var i=el("input");i.type="text";i.id=q.k;i.name=q.k;i.maxLength=120;d.appendChild(i)}
+  else if(q.type=="area"){d=el("div","q");var lb2=el("label","t",lg);lb2.setAttribute("for",q.k);d.appendChild(lb2);var a=el("textarea");a.id=q.k;a.name=q.k;a.maxLength=800;d.appendChild(a)}
+  else{d=el("fieldset","q");d.appendChild(el("legend",0,lg+(q.hint?" ("+q.hint.replace(".","")+")":"")));
+   if(q.type=="scale"){var g=el("div","scale");["1","2","3","4","5"].forEach(function(n){var lb=el("label","opt"),i=el("input");i.type="radio";i.name=q.k;i.value=n;lb.appendChild(i);lb.appendChild(el("span",0,n));g.appendChild(lb)});d.appendChild(g);var e=el("div","ends");e.appendChild(el("span",0,"1 = nada seguro"));e.appendChild(el("span",0,"5 = muito seguro"));d.appendChild(e)}
+   else q.o.forEach(function(o){d.appendChild(opt(q,o))})}
+  sec.appendChild(d)
+ });
+ f.appendChild(sec)
+});
+var hp=el("div","hp");hp.setAttribute("aria-hidden","true");var hi=el("input");hi.type="text";hi.name="_gotcha";hi.tabIndex=-1;hi.autocomplete="off";hp.appendChild(hi);f.appendChild(hp);
+var btn=el("button",0,"Enviar respostas");btn.type="submit";f.appendChild(btn);
+var msg=el("div","msg");msg.setAttribute("role","alert");f.appendChild(msg);
+function val(q){
+ if(q.type=="check")return [].slice.call(f.querySelectorAll('input[name="'+q.k+'"]:checked')).map(function(x){return x.value}).join("; ");
+ if(q.type=="radio"||q.type=="scale"){var c=f.querySelector('input[name="'+q.k+'"]:checked');return c?c.value:""}
+ return f.elements[q.k].value.trim()
+}
+function progress(){var n=0;Q.forEach(function(s){s.qs.forEach(function(q){if(val(q))n++})});pg.style.width=Math.round(n/total*100)+"%"}
+f.addEventListener("input",progress);f.addEventListener("change",progress);
+function fail(t){msg.style.display="block";msg.textContent=t}
+f.addEventListener("submit",function(e){
+ e.preventDefault();msg.style.display="none";
+ var r={_subject:"Nova resposta: contratos para MEI"},miss=null;
+ Q.forEach(function(s){s.qs.forEach(function(q){var v=val(q);r[q.k]=v;if(q.req&&!v&&!miss)miss=q})});
+ if(miss){fail("Responda as perguntas marcadas com * para enviar. Falta: "+miss.l);return}
+ if(hi.value){return}
+ if(ENDPOINT.indexOf("https://formspree.io/")!==0){fail("O site ainda não está ligado ao e-mail. Quem publicou o site precisa colar o endereço do Formspree no arquivo.");return}
+ btn.disabled=true;btn.textContent="Enviando…";
+ fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(r)})
+ .then(function(res){if(!res.ok)throw new Error("http");
+  var app=document.getElementById("app");app.textContent="";
+  var ok=el("section","thanks");var sl=el("div","seal","✓");sl.setAttribute("aria-hidden","true");ok.appendChild(sl);ok.appendChild(el("h2",0,"Obrigado pela sua resposta!"));ok.appendChild(el("p",0,"Ela vai ajudar a criar um kit de contratos mais fácil de entender para quem empreende."));app.appendChild(ok);window.scrollTo(0,0);pg.style.width="100%"})
+ .catch(function(){btn.disabled=false;btn.textContent="Enviar respostas";fail("Não foi possível enviar. Confira a conexão com a internet e toque em Enviar respostas de novo.")})
+});
+</script>
+</body>
+</html>
